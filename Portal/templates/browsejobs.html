@@ -598,14 +598,14 @@
 </body>
 {% if skill_check %}
 	<script type="text/javascript">
-		var x="skill_"+{{skill_check}};
+		var x="skill_"+{skill_check};
 		document.getElementById(x).checked=true;
 		filter();
 	</script>
 {% endif %}
 {% if language_check %}
 	<script type="text/javascript">
-		var y="language_"+{{language_check}};
+		var y="language_"+{language_check};
 		console.log(y);
 		document.getElementById(y).checked=true;
 		filter();
