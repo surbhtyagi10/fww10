@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-
+    'whitenoise.runserver_nostatic',
     'Portal',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -78,14 +79,7 @@ WSGI_APPLICATION = 'FreelancingPortal.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'FreelancingPortal',
-    #     'USER': 'Aakash_97',
-    #     'PASSWORD': 'Light97isawesome',
-    #     'HOST': 'aakashdbinstance.cdgcb2d25ikg.ap-south-1.rds.amazonaws.com',
-    #     'PORT': '3306',
-    # }
+  
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'freelancing_portal',
@@ -128,6 +122,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
